@@ -64,7 +64,7 @@ The input consists of an integer `n` on the first line and `n` integers `a_1, ..
 ### Output:
 Print "Yes" or "No" in a single line, depending on whether or not the field can be a peak or a valley.
 
-### Ex 5
+## Ex 5
 Write a program that first receives an integer `m` and then an integer `n` from the user, followed by the coefficients of a polynomial `P(x)` of degree `m` from the user, and prints the coefficients of the polynomial `(P(x))^n` in the output.
 
 To do this, you need to define a function that calculates the coefficients in such a way that its output is a pointer to the resulting coefficients array.
@@ -163,3 +163,16 @@ Explanation:
 In the beginning, user 25 makes a request. The entered URL is correct and the query is successfully created. In the second query, user 25 requests again, but since 4 seconds have passed since their previous request, they cannot have a new request to link to the desired site. The third request is created correctly. In the last request, due to the required time passing, user 25 can make a new request and their request is successfully created.
 
 ## Ex 8
+You are given two strings as input. Your task is to determine whether these two strings are Peter's favorite strings or not.
+
+Peter's favorite strings are strings that have the same characters that occur the same number of times in both strings. However, the order may be different. For example, "alireza" and "raelzai" are two examples of Peter's favorite strings.
+
+To implement this algorithm, it is recommended to take a look at the concept of HashMap in Java.
+
+### Input:
+The first line contains the first string, and the second line contains the second string.
+
+### Output:
+If the two input strings are Peter's favorite strings, print "true", otherwise print "false".
+
+## Ex 9
