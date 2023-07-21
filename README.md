@@ -126,7 +126,7 @@ true
 true
 true
 ```
-For more information, you can check out this [link ↗](https://www.geeksforgeeks.org/hashtable-in-java/).
+For more information, you can check out this link: [ ↗](https://www.geeksforgeeks.org/hashtable-in-java/)
 
 ### Input:
 The first line contains n, which is the number of queries. The next n lines contain the time (t), URL, key, and user ID (userid) values in order, separated by a space.
@@ -176,3 +176,215 @@ The first line contains the first string, and the second line contains the secon
 If the two input strings are Peter's favorite strings, print "true", otherwise print "false".
 
 ## Ex 9
+A regular expression or regex is a pattern that allows you to see if a text or string matches a pattern that you want. For example, to make sure that a string matches an email pattern, you can check that it starts with letters and numbers and does not use unauthorized characters, has an @ symbol, and so on. To do this, you need to be familiar with regular expression language commands. You can see all of them by going to the link below, and you do not need to memorize all of these commands. Whenever you need it, you can use this pdf: [↗](https://cheatography.com/davechild/cheat-sheets/regular-expressions/pdf)
+
+Now let's demonstrate regex with some examples. These examples help you become familiar with the syntax of regular expressions. Well, take a look at this expression:
+
+```
+/^\w+$/
+```
+
+The caret (^) and dollar sign ($) indicate the beginning and end of the string. The backslash w says: find any word and the plus sign says that the number of characters in this word can be one or more. Therefore, if we have the text abcde1234 cdefg23456, both words will be found with this pattern.
+
+Now before we see the next expressions, we want to introduce you to a tool that will help you learn. Please visit: [↗](http://www.regexr.com/)
+
+This amazing online tool makes learning easier for you. Test your regex online and find its problems.
+
+And here's a tutorial link to better understand regex: [↗](https://www.youtube.com/watch?v=sa-TUpSx1JA)
+
+Now let's try some more examples. First, copy and paste this text into the online tool mentioned and try the patterns below:
+
+```
+RegExr was not created by reg@gskinner.com, and is proudly100 hosted by Media Temple.
+
+Edit the Expre3.ssion & Text to see mail@sbu matches. Roll ove93r matches or the 41.56 expression 3 for details. PCRE & JavaScript flavors of RegEx are supported. Validate 134 your 2 e1.xpression with Tes4.6ts mode.
+```
+- 1. Pattern to find decimal numbers in a text:
+
+```
+\d+\.\d*
+    or
+[0-9]+\.[0-9]*
+```
+
+In this pattern, d\ is similar to [0-9], meaning one digit (including digits 0 to 9). + means one or more occurrences of the pattern, so the expression +d\ means one or more digits in a row. .\ means exactly a dot. The reason for using \ before the dot is that dot alone means "any character except for a newline character". So \ is added to indicate that we mean the character dot itself. The asterisk or * is exactly the same as +, but it matches zero or more instances of the pattern instead of one or more.
+
+- 2. Pattern to find numbers from 1 to 100:
+
+```
+100|\d\d|\d
+    or
+100|\d{2}|\d
+```
+
+The point of this pattern is to use the or (|) operator. In other words, we have separated the pattern into three distinct cases, and if any of them is matched, the pattern will match. Try to see how the following pattern differs from the above pattern.
+
+```
+\s100\s|\s\d\d\s|\s\d\s
+```
+
+- 3. Now let's use the same email example. A sample pattern for an email could be like this:
+
+```
+^[^@\s]+@[^@\s]+\.\w{2,6}$
+```
+
+There is no perfect regex for matching email addresses. If you need to use a regex for an email, it is recommended to read this link.
+
+Now for implementing regex in Java, you can do it in two ways.
+- 1. Use the following code:
+
+```
+String pattern = "^[^@\\s]+@[^@\\s]+\\.\\w{2,6}$";
+String email = "hello@world.com";
+System.out.println(email.matches(pattern));
+```
+
+- 2. Use the following code:
+
+```
+Scanner jin = new Scanner(System.in);  
+String line = jin.nextLine();  
+Pattern emailPattern = Pattern.compile("(\\d+\\.\\d*)");  
+Matcher matcher = emailPattern.matcher(line);  
+while (matcher.find()) {  
+    System.out.println(matcher.group());  
+}
+```
+
+The second code finds all matched substrings in the text. Note that if you use ^ and $, the entire string must match your pattern, otherwise no substring will match.
+
+### Input:
+The first line contains a word at the beginning.
+The second line contains another word.
+
+### Output:
+If the word exists in the second word and is true, print YES, otherwise print NO.
+
+## Ex 10
+### Validation Rules
+#### Email Validation
+A valid email address is in the format of username@domain.tld, where:
+
+- The username can only contain English letters, numbers, underscore, and dot.
+- The domain can only contain English letters or numbers.
+- The TLD is a three-letter English word.
+- English letters can be uppercase or lowercase.
+
+#### Mobile Number Validation
+A mobile number is considered valid if it meets one of the following conditions:
+
+- It contains 11 digits and starts with 09.
+- It contains 13 digits and starts with +989.
+- It contains 14 digits and starts with 00989.
+
+##### Input:
+The input consists of two separate lines containing an email and a phone number, respectively.
+
+#### Output:
+The program output should consist of two lines. The first line should display the result of the email validation, and the second line should display the result of the phone number validation. If the validation result is correct, display True, otherwise display False.
+
+## Ex 11
+Write a program that receives an array of k sorted ArrayLists in ascending order. Then, merge all ArrayLists and convert them into a sorted array.
+
+Note: The problem can be solved using Regex.
+
+0 ≤ k ≤ 10^4
+
+0 ≤ |ArrayList[i]| ≤ 500
+
+-10^4 ≤ ArrayList[i][j] ≤ 10^4
+
+### Input
+The input consists of two lines. The first line contains an integer k, the number of sorted ArrayLists. The second line contains k sorted ArrayLists, separated by semicolons (;) and enclosed in square brackets ([]). Each ArrayList is a comma-separated list of integers, enclosed in square brackets ([]).
+
+### Output
+The program output should be a sorted array of all the elements in the input ArrayLists, separated by commas (,).
+
+## Ex 12
+Each war map is an m x n matrix containing X and O. If some of the O positions are surrounded by ally forces from the north, south, west, and east sides, that position will be captured by the X. Help to write a program to do this on war maps.
+
+Note: Since the matrix information is given as a single string array, the problem can be solved using Regex.
+
+1 ≤ m, n ≤ 200
+
+### Input
+The input consists of a single line containing a string of length m x n, representing the war map matrix. The matrix is given as a single string array, where each row of the matrix is concatenated with no spaces.
+
+### Output
+The program output should be a string of length m x n, representing the updated war map matrix after capturing the O positions. The matrix should be given as a single string array, where each row of the matrix is concatenated with no spaces.
+
+#### Example
+
+<p align="center">
+  <img src="Image1.jpg" alt="image-description">
+</p>
+
+##### Input:
+
+```
+[["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+```
+
+##### Output:
+```
+[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+```
+## Ex 13
+Write a program that prints a matrix with the maximum height of a house.
+
+Each area is an m x n matrix that includes dry and wet areas (matrix information is given as a string array). The information for this map is as follows:
+
+- If a cell value is equal to 1, that cell is water.
+- If a cell value is equal to 0, that cell is dry.
+
+Reconstruction also follows the rules:
+
+- The height of each cell is non-negative.
+- The height of water cells is 0.
+- The difference between neighboring cells (a cell is considered neighboring to another cell if it is to the north, south, east, or west of that cell) is at most 1. Find the height matrix such that the highest point has the maximum height.
+
+Note: You can use Regex to solve this problem.
+
+1 ≤ m, n ≤ 1000
+
+### Input
+The input consists of a single line containing a string of length m x n, representing the area matrix. The matrix is given as a single string array, where each row of the matrix is concatenated with no spaces.
+
+### Output
+The program output should be a string of length m x n, representing the height matrix. The matrix should be given as a single string array, where each row of the matrix is concatenated with no spaces.
+
+#### Example
+
+<p align="center">
+  <img src="Image2.png" alt="image-description">
+</p>
+
+##### Input:
+
+```
+[[0,1],[0,0]]
+```
+
+##### Output:
+
+```
+[[1,0],[2,1]]
+```
+
+## Ex 14
+Mabin selects an equation in the form of A + B = C, where all three numbers are non-negative. She writes the equation on paper and gives it to Reza.
+
+Then, Mabin selects a digit x from A, B, and C and replaces x consecutive digits of that number with #, without Reza noticing.
+
+For example, Mabin can convert the equation 32 + 24 = 56 to #2 + 24 = 56 or 32 + 24 = #, and so on.
+
+Now it's Reza's turn to guess the original equation. Since Mabin is a bit ignorant :))) she may have written the equation wrong from the beginning, and if so, Reza should say that the equation was wrong from the beginning.
+
+But as usual, Reza doesn't know how to write the code!!
+
+### Input
+In the input, we give you the equation modified by Mabin, and you have to help Reza understand what digits # should be replaced with, or tell him that the equation was wrong from the beginning.
+
+### Output
+In the output, if we can replace the # with a non-negative number, replace the appropriate number instead of the number containing # in the original equation and return the equation. Otherwise, return '-1'.
